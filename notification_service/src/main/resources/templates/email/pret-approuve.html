@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 30px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .header {
+            background-color: #1a5276;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        .header h1 { margin: 0; font-size: 24px; }
+        .body { padding: 30px; color: #333; }
+        .montant {
+            background: #eaf4e8;
+            border-left: 4px solid #27ae60;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+            font-size: 22px;
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .details {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        .details table { width: 100%; border-collapse: collapse; }
+        .details td { padding: 8px 0; color: #555; }
+        .details td:first-child { font-weight: bold; color: #333; width: 50%; }
+        .btn {
+            display: inline-block;
+            background-color: #1a5276;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .footer {
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>✅ Prêt Approuvé</h1>
+        <p>MicroFinanceHub</p>
+    </div>
+    <div class="body">
+        <p>Bonjour <strong th:text="${clientNom}">Client</strong>,</p>
+        <p>Nous avons le plaisir de vous informer que votre demande de prêt
+           a été <strong>approuvée</strong>.</p>
+
+        <div class="montant">
+            💰 <span th:text="${#numbers.formatDecimal(montant, 0, 'COMMA', 0, 'POINT')}">0</span> XAF
+        </div>
+
+        <div class="details">
+            <table>
+                <tr>
+                    <td>Durée</td>
+                    <td th:text="${dureeEnMois + ' mois'}">12 mois</td>
+                </tr>
+                <tr>
+                    <td>Taux d'intérêt</td>
+                    <td th:text="${tauxInteret + '%'}">8.5%</td>
+                </tr>
+                <tr>
+                    <td>Date d'approbation</td>
+                    <td th:text="${#temporals.format(dateApprobation, 'dd/MM/yyyy')}">01/01/2024</td>
+                </tr>
+            </table>
+        </div>
+
+        <p>Votre argent sera disponible sur votre compte sous <strong>24 heures</strong>.</p>
+
+        <a href="#" class="btn">Voir mon compte</a>
+
+        <p>Pour toute question, contactez-nous au <strong>+237 XXX XXX XXX</strong>.</p>
+        <p>Cordialement,<br/><strong>L'équipe MicroFinanceHub</strong></p>
+    </div>
+    <div class="footer">
+        <p>© 2024 MicroFinanceHub — Yaoundé, Cameroun</p>
+        <p>Cet email est automatique, merci de ne pas y répondre.</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 30px auto; background: #fff;
+                     border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .header { background-color: #c0392b; color: white; padding: 30px; text-align: center; }
+        .header h1 { margin: 0; font-size: 22px; }
+        .body { padding: 30px; color: #333; }
+        .alerte {
+            background: #fdedec;
+            border-left: 4px solid #c0392b;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .montant { font-size: 26px; color: #c0392b; font-weight: bold; margin: 10px 0; }
+        .footer { background: #f4f4f4; text-align: center;
+                  padding: 20px; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>⚠️ Alerte Retard de Paiement</h1>
+        <p>MicroFinanceHub</p>
+    </div>
+    <div class="body">
+        <p>Bonjour <strong th:text="${clientNom}">Client</strong>,</p>
+        <p>Votre paiement est en retard de
+           <strong th:text="${joursRetard}">0</strong> jour(s).</p>
+
+        <div class="alerte">
+            <p>📅 Date d'échéance dépassée :
+               <strong th:text="${dateEcheance}">01/01/2024</strong>
+            </p>
+            <p>Montant dû :</p>
+            <div class="montant"
+                 th:text="${#numbers.formatDecimal(montantDu, 0, 'COMMA', 0, 'POINT') + ' XAF'}">
+                0 XAF
+            </div>
+            <p>Pénalité appliquée :
+               <span th:text="${#numbers.formatDecimal(penalite, 0, 'COMMA', 0, 'POINT') + ' XAF'}">
+                   0 XAF
+               </span>
+            </p>
+        </div>
+
+        <p>Veuillez régulariser votre situation <strong>immédiatement</strong>
+           pour éviter des pénalités supplémentaires.</p>
+        <p>Contactez-nous au <strong>+237 XXX XXX XXX</strong>.</p>
+        <p>Cordialement,<br/><strong>L'équipe MicroFinanceHub</strong></p>
+    </div>
+    <div class="footer">
+        <p>© 2024 MicroFinanceHub — Yaoundé, Cameroun</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 30px auto; background: #fff;
+                     border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #1a5276, #2980b9);
+                  color: white; padding: 40px 30px; text-align: center; }
+        .header h1 { margin: 0; font-size: 26px; }
+        .body { padding: 30px; color: #333; }
+        .compte {
+            background: #eaf4fb;
+            border: 1px solid #2980b9;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .numero { font-size: 22px; font-weight: bold; color: #1a5276;
+                  letter-spacing: 2px; margin: 10px 0; }
+        .footer { background: #f4f4f4; text-align: center;
+                  padding: 20px; font-size: 12px; color: #999; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>🎉 Bienvenue chez MicroFinanceHub !</h1>
+    </div>
+    <div class="body">
+        <p>Bonjour <strong th:text="${clientNom}">Client</strong>,</p>
+        <p>Votre compte a été créé avec succès. Vous êtes maintenant
+           membre de MicroFinanceHub !</p>
+
+        <div class="compte">
+            <p style="color:#555; margin:0">Votre numéro de compte</p>
+            <div class="numero" th:text="${numeroCompte}">MFH-2024-00000</div>
+            <p style="color:#888; font-size:12px; margin:5px 0"
+               th:text="${'Créé le ' + #temporals.format(dateCreation, 'dd/MM/yyyy à HH:mm')}">
+                Créé le 01/01/2024
+            </p>
+        </div>
+
+        <p>Vous pouvez dès maintenant :</p>
+        <ul>
+            <li>Effectuer des dépôts et retraits</li>
+            <li>Demander un prêt</li>
+            <li>Consulter votre solde en temps réel</li>
+        </ul>
+
+        <p>Cordialement,<br/><strong>L'équipe MicroFinanceHub</strong></p>
+    </div>
+    <div class="footer">
+        <p>© 2024 MicroFinanceHub — Yaoundé, Cameroun</p>
+    </div>
+</div>
+</body>
+</html>
