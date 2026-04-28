@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/>
+<style>
+  body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:0}
+  .container{max-width:600px;margin:30px auto;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+  .header{background:#1a5276;color:white;padding:30px;text-align:center}
+  .header h1{margin:0;font-size:22px}
+  .body{padding:30px;color:#333}
+  .montant{background:#eaf4fb;border-left:4px solid #2980b9;padding:15px 20px;margin:20px 0;border-radius:4px;font-size:26px;color:#1a5276;font-weight:bold}
+  .footer{background:#f4f4f4;text-align:center;padding:20px;font-size:12px;color:#999}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"><h1>💰 Prêt Décaissé</h1><p>MicroFinanceHub</p></div>
+  <div class="body">
+    <p>Bonjour <strong th:text="${clientNom}">Client</strong>,</p>
+    <p>Votre prêt a été décaissé avec succès !</p>
+    <div class="montant">
+      💵 <span th:text="${#numbers.formatDecimal(montant,0,'COMMA',0,'POINT')}">0</span> XAF
+    </div>
+    <p>Le montant est maintenant disponible sur votre compte.</p>
+    <p>Consultez votre échéancier de remboursement dans l'application.</p>
+    <p>Cordialement,<br/><strong>L'équipe MicroFinanceHub</strong></p>
+  </div>
+  <div class="footer"><p>© 2024 MicroFinanceHub — Yaoundé, Cameroun</p></div>
+</div>
+</body>
+</html>

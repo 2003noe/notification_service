@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/>
+<style>
+  body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:0}
+  .container{max-width:600px;margin:30px auto;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+  .header{background:linear-gradient(135deg,#1a5276,#2471a3);color:white;padding:50px 30px;text-align:center}
+  .header h1{margin:0;font-size:28px}
+  .header p{margin:10px 0 0;font-size:16px;opacity:0.9}
+  .body{padding:30px;color:#333}
+  .steps{margin:20px 0}
+  .step{display:flex;align-items:flex-start;margin:15px 0;gap:15px}
+  .step-num{background:#1a5276;color:white;border-radius:50%;width:32px;height:32px;
+            display:flex;align-items:center;justify-content:center;
+            font-weight:bold;flex-shrink:0;font-size:14px;line-height:32px;text-align:center}
+  .step-text strong{display:block;color:#1a5276;margin-bottom:3px}
+  .step-text p{margin:0;font-size:13px;color:#666}
+  .btn{display:inline-block;background:#1a5276;color:white;padding:14px 35px;
+       border-radius:6px;text-decoration:none;font-weight:bold;margin:20px 0}
+  .footer{background:#f4f4f4;text-align:center;padding:20px;font-size:12px;color:#999}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>🌟 Bienvenue !</h1>
+    <p th:text="${'Bonjour ' + clientNom + ', votre inscription est confirmée'}">
+      Bonjour Client
+    </p>
+  </div>
+  <div class="body">
+    <p>Nous sommes ravis de vous compter parmi nos membres.
+       Voici comment démarrer :</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">
+          <strong>Complétez votre profil</strong>
+          <p>Ajoutez vos documents d'identité pour activer toutes les fonctionnalités</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">
+          <strong>Effectuez un premier dépôt</strong>
+          <p>Alimentez votre compte pour commencer à épargner</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">
+          <strong>Demandez un prêt</strong>
+          <p>Accédez à nos offres de financement adaptées à vos besoins</p>
+        </div>
+      </div>
+    </div>
+
+    <a href="#" class="btn">Accéder à mon espace</a>
+
+    <p>Des questions ? Contactez-nous au <strong>+237 XXX XXX XXX</strong>
+       ou par email à <strong>support@microfinancehub.cm</strong>.</p>
+    <p>Cordialement,<br/><strong>L'équipe MicroFinanceHub</strong></p>
+  </div>
+  <div class="footer"><p>© 2024 MicroFinanceHub — Yaoundé, Cameroun</p></div>
+</div>
+</body>
+</html>

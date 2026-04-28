@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"/>
+<style>
+  body{font-family:Arial,sans-serif;background:#f4f4f4;margin:0;padding:0}
+  .container{max-width:600px;margin:30px auto;background:#fff;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+  .header{background:#1e8449;color:white;padding:30px;text-align:center}
+  .header h1{margin:0;font-size:22px}
+  .body{padding:30px;color:#333}
+  .recu{background:#eafaf1;border:1px solid #27ae60;padding:20px;border-radius:8px;margin:20px 0}
+  .recu table{width:100%;border-collapse:collapse}
+  .recu td{padding:10px 0;border-bottom:1px solid #d5f5e3}
+  .recu td:first-child{font-weight:bold;color:#1e8449;width:50%}
+  .footer{background:#f4f4f4;text-align:center;padding:20px;font-size:12px;color:#999}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header"><h1>💵 Dépôt Confirmé</h1><p>MicroFinanceHub</p></div>
+  <div class="body">
+    <p>Bonjour <strong th:text="${clientNom}">Client</strong>,</p>
+    <p>Votre dépôt a été effectué avec succès.</p>
+    <div class="recu">
+      <table>
+        <tr><td>Montant déposé</td>
+            <td th:text="${#numbers.formatDecimal(montant,0,'COMMA',0,'POINT') + ' XAF'}">0 XAF</td></tr>
+        <tr><td>Nouveau solde</td>
+            <td th:text="${#numbers.formatDecimal(soldeApres,0,'COMMA',0,'POINT') + ' XAF'}">0 XAF</td></tr>
+        <tr><td>Compte</td>
+            <td th:text="${numeroCompte}">MFH-000</td></tr>
+        <tr><td>Date</td>
+            <td th:text="${#temporals.format(dateOperation,'dd/MM/yyyy HH:mm')}">01/01/2024</td></tr>
+      </table>
+    </div>
+    <p>Cordialement,<br/><strong>L'équipe MicroFinanceHub</strong></p>
+  </div>
+  <div class="footer"><p>© 2024 MicroFinanceHub — Yaoundé, Cameroun</p></div>
+</div>
+</body>
+</html>
